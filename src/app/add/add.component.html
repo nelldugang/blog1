@@ -1,0 +1,49 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Students</h2>
+  <form [formGroup]="addForm" novalidate class="form">
+  	<div class="form-group">
+  		<label for="sId">Student Id:</label>
+  		<input type="text" formControlName="sId" placeholder="Students id" class="form-control"><br/>
+
+  		<div class="alert alert-danger" *ngIf="addForm.get('sId').hasError('maxlength') && addForm.get('sId').touched">
+  			Max 2 characters only
+  		</div>
+  		<div class="alert alert-danger" *ngIf="addForm.get('sId').hasError('required') && addForm.get('sId').touched">
+  			Please Enter Student Id
+  		</div>
+  		<div class="alert alert-danger" *ngIf="addForm.get('sId').hasError('pattern') && addForm.get('sId').touched">
+  			Numbers only
+  		</div>
+
+  		
+  		<label for="fName">Student firstName:</label>
+  		<input type="text" formControlName="fName" placeholder="Students First Name" class="form-control"><br/>
+
+  		<div class="alert alert-danger" *ngIf="addForm.get('fName').hasError('required') && addForm.get('fName').touched">
+  			Please Enter Student firstName
+  		</div>
+  		<div class="alert alert-danger" *ngIf="addForm.get('fName').hasError('maxlength') && addForm.get('fName').touched">
+  			Max 2 characters only
+  		</div>
+
+
+  		<label for="lName">Student LastName:</label>
+  		<input type="text" formControlName="lName" placeholder="Students Last Name" class="form-control"><br/>
+
+  		<div class="alert alert-danger" *ngIf="addForm.get('lName').hasError('required') && addForm.get('lName').touched">
+  			Please Enter Student LastName
+  		</div>
+
+
+  		<label for="email">Student Email:</label>
+  		<input type="text" formControlName="email" placeholder="Students Email" class="form-control"><br/>
+
+  		<div class="alert alert-danger" *ngIf="addForm.get('email').hasError('required') && addForm.get('email').touched">
+  			Please Enter Student Email
+  		</div>
+
+
+  		<button class="btn btn-success" [disabled]="addForm.invalid" (click)="onSubmit()">Save</button>
+  	</div>
+  </form>
+</div>
